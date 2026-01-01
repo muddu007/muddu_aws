@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Installing nginx"
+      - sudo apt-get update
+      - sudo apt-get install nginx
+  build:
+    commands:
+      - echo "Starting nginx"  
+      - echo "Testing nginx locally"
+      - curl http://localhost
+      - cp index.html /var/www/html/
+  post_build:
+    commands:
+      - echo "Build completed successfully"
+artifacts:
+  files:
+    - '**/*'
